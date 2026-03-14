@@ -1,0 +1,26 @@
+{
+  "name": "minecraft-client-controller",
+  "version": "1.0.0",
+  "description": "OpenClaw Minecraft client controller server - 等待客户端连接",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "ws": "^8.14.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "keywords": [
+    "minecraft",
+    "websocket",
+    "client",
+    "mod",
+    "openclaw",
+    "server"
+  ],
+  "author": "OpenClaw",
+  "license": "MIT"
+}

@@ -1,0 +1,15 @@
+{
+  "client": {
+    "host": "localhost",
+    "port": 8080
+  },
+  "agent": {
+    "autoReconnect": true,
+    "reconnectDelay": 5000,
+    "actionTimeout": 30000
+  },
+  "ai": {
+    "autoRespond": true,
+    "responseDelay": 1000
+  }
+}
