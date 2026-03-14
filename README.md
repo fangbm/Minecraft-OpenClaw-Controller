@@ -68,7 +68,18 @@
 3. 将生成的 jar 放入 `.minecraft/mods/` 文件夹
 4. 启动游戏
 
-> **提示**: NeoForge 是 Forge 的现代分支，提供更简洁的 API 和更好的性能。
+#### Fabric 版本 (Minecraft 1.21.1)
+1. 安装 [Fabric Loader 1.21.1](https://fabricmc.net/use/)
+2. 安装 [Fabric API](https://modrinth.com/mod/fabric-api)
+3. 构建 Mod：
+   ```bash
+   cd fabric-mod
+   ./gradlew build
+   ```
+4. 将生成的 jar 放入 `.minecraft/mods/` 文件夹
+5. 启动游戏
+
+> **提示**: Fabric 是轻量级的 mod 加载器，启动速度更快。
 
 ### 2. 配置 Mod
 
@@ -274,6 +285,9 @@ ws://localhost:8080/agent
 │   ├── src/
 │   └── build.gradle
 ├── neoforge-mod/        # Minecraft NeoForge Mod (Java)
+│   ├── src/
+│   └── build.gradle
+├── fabric-mod/          # Minecraft Fabric Mod (Java)
 │   ├── src/
 │   └── build.gradle
 ├── scripts/             # OpenClaw 控制器 (Node.js)
