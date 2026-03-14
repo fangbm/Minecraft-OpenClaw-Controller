@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "client_controller",
+  "version": "${version}",
+  "name": "Minecraft Client Controller (Fabric)",
+  "description": "通过 WebSocket 控制本地 Minecraft 客户端 - Fabric 版本",
+  "authors": [
+    "OpenClaw Community"
+  ],
+  "contact": {
+    "homepage": "https://github.com/fangbm/Minecraft-OpenClaw-Controller",
+    "sources": "https://github.com/fangbm/Minecraft-OpenClaw-Controller"
+  },
+  "license": "MIT",
+  "icon": "assets/client_controller/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.openclaw.minecraft.ClientControllerMod"
+    ]
+  },
+  "mixins": [
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "fabric": "*",
+    "minecraft": ">=1.21",
+    "java": ">=21"
+  }
+}
