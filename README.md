@@ -46,8 +46,9 @@
 
 ## 安装步骤
 
-### 1. 安装 Forge Mod
+### 1. 安装客户端 Mod
 
+#### Forge 版本 (Minecraft 1.21.1)
 1. 安装 [Forge 1.21.1](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.21.1.html)
 2. 构建 Mod：
    ```bash
@@ -56,6 +57,18 @@
    ```
 3. 将生成的 jar 放入 `.minecraft/mods/` 文件夹
 4. 启动游戏
+
+#### NeoForge 版本 (Minecraft 1.21.1)
+1. 安装 [NeoForge 1.21.1](https://neoforged.net/)
+2. 构建 Mod：
+   ```bash
+   cd neoforge-mod
+   ./gradlew build
+   ```
+3. 将生成的 jar 放入 `.minecraft/mods/` 文件夹
+4. 启动游戏
+
+> **提示**: NeoForge 是 Forge 的现代分支，提供更简洁的 API 和更好的性能。
 
 ### 2. 配置 Mod
 
@@ -258,6 +271,9 @@ ws://localhost:8080/agent
 ```
 .
 ├── forge-mod/           # Minecraft Forge Mod (Java)
+│   ├── src/
+│   └── build.gradle
+├── neoforge-mod/        # Minecraft NeoForge Mod (Java)
 │   ├── src/
 │   └── build.gradle
 ├── scripts/             # OpenClaw 控制器 (Node.js)
