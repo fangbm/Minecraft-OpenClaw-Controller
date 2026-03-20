@@ -130,15 +130,14 @@ jobs:
           ~/.gradle/caches
           ~/.gradle/wrapper
           ${{ matrix.mod-dir }}/.gradle
-        key: ${{ runner.os }}-gradle-${{ matrix.mod-type }}-${{ hashFiles('**/gradle-wrapper.properties', '**/build.gradle') }}
+        key: ${{ runner.os }}-gradle-${{ matrix.mod-type }}-${{ hashFiles('**/gradle-wrapper.properties', '**/build.gradle', '**/gradle.properties') }}
         restore-keys: |
           ${{ runner.os }}-gradle-${{ matrix.mod-type }}-
-          ${{ runner.os }}-gradle-
     
-    - name: Build with Gradle
+    - name: Clean and Build with Gradle
       run: |
         cd ${{ matrix.mod-dir }}
-        ./gradlew build --no-daemon
+        ./gradlew clean build --no-daemon
     
     - name: List build artifacts
       run: |
