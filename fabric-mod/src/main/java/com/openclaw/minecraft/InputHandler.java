@@ -1,6 +1,6 @@
 package com.openclaw.minecraft;
 
-import net.minecraft.client.Minecraft;
+import net.minecraft.client.MinecraftClient;
 import org.lwjgl.glfw.GLFW;
 
 /**
@@ -8,9 +8,9 @@ import org.lwjgl.glfw.GLFW;
  */
 public class InputHandler {
     
-    private static Minecraft mc;
+    private static MinecraftClient mc;
     
-    public static void init(Minecraft minecraft) {
+    public static void init(MinecraftClient minecraft) {
         mc = minecraft;
     }
     

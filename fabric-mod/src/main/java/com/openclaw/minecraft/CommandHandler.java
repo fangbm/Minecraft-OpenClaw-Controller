@@ -1,6 +1,6 @@
 package com.openclaw.minecraft;
 
-import net.minecraft.client.Minecraft;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -30,7 +30,7 @@ public class CommandHandler {
      * 执行命令
      */
     public static Object execute(String action, JsonObject data) {
-        Minecraft mc = Minecraft.getInstance();
+        MinecraftClient mc = Minecraft.getInstance();
         ClientPlayerEntity player = mc.player;
         
         if (player == null) {
@@ -83,7 +83,7 @@ public class CommandHandler {
     
     // ==================== 键盘控制 ====================
     
-    private static boolean handleKeyDown(Minecraft mc, String key) {
+    private static boolean handleKeyDown(MinecraftClient mc, String key) {
         int keyCode = getKeyCode(key);
         
         if (keyCode != -1) {
@@ -96,7 +96,7 @@ public class CommandHandler {
         return false;
     }
     
-    private static boolean handleKeyUp(Minecraft mc, String key) {
+    private static boolean handleKeyUp(MinecraftClient mc, String key) {
         int keyCode = getKeyCode(key);
         
         if (keyCode != -1) {
@@ -109,7 +109,7 @@ public class CommandHandler {
         return false;
     }
     
-    private static boolean handleTypeText(Minecraft mc, String text) {
+    private static boolean handleTypeText(MinecraftClient mc, String text) {
         mc.execute(() -> {
             if (mc.currentScreen != null) {
                 // 向当前 GUI 输入文本
@@ -123,7 +123,7 @@ public class CommandHandler {
     
     // ==================== 鼠标控制 ====================
     
-    private static boolean handleMoveMouse(Minecraft mc, int deltaX, int deltaY) {
+    private static boolean handleMoveMouse(MinecraftClient mc, int deltaX, int deltaY) {
         mc.execute(() -> {
             // 获取当前鼠标灵敏度
             double sensitivity = mc.options.getMouseSensitivity().getValue();
@@ -166,7 +166,7 @@ public class CommandHandler {
         return true;
     }
     
-    private static boolean handleClick(Minecraft mc, String button) {
+    private static boolean handleClick(MinecraftClient mc, String button) {
         mc.execute(() -> {
             if ("left".equals(button)) {
                 // 左键点击
@@ -181,7 +181,7 @@ public class CommandHandler {
         return true;
     }
     
-    private static boolean handleMouseDown(Minecraft mc, String button) {
+    private static boolean handleMouseDown(MinecraftClient mc, String button) {
         mc.execute(() -> {
             if ("left".equals(button)) {
                 mc.options.attackKey.setPressed(true);
@@ -193,7 +193,7 @@ public class CommandHandler {
         return true;
     }
     
-    private static boolean handleMouseUp(Minecraft mc, String button) {
+    private static boolean handleMouseUp(MinecraftClient mc, String button) {
         mc.execute(() -> {
             if ("left".equals(button)) {
                 mc.options.attackKey.setPressed(false);
@@ -205,7 +205,7 @@ public class CommandHandler {
         return true;
     }
     
-    private static boolean handleScroll(Minecraft mc, int delta) {
+    private static boolean handleScroll(MinecraftClient mc, int delta) {
         mc.execute(() -> {
             // 模拟滚轮
             mc.player.getInventory().scrollInHotbar(delta > 0 ? -1 : 1);
@@ -302,7 +302,7 @@ public class CommandHandler {
         return entities;
     }
     
-    private static Map<String, Object> handleGetTargetedBlock(Minecraft mc) {
+    private static Map<String, Object> handleGetTargetedBlock(MinecraftClient mc) {
         HitResult hit = mc.crosshairTarget;
         
         if (hit != null && hit.getType() == HitResult.Type.BLOCK) {
@@ -319,7 +319,7 @@ public class CommandHandler {
         return null;
     }
     
-    private static String handleScreenshot(Minecraft mc) {
+    private static String handleScreenshot(MinecraftClient mc) {
         return "screenshot_not_implemented";
     }
     

@@ -4,7 +4,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
-import net.minecraft.client.Minecraft;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
@@ -17,7 +17,7 @@ import java.io.FileWriter;
 import java.util.Properties;
 
 /**
- * Minecraft Client Controller - Fabric Mod for 1.21.1
+ * MinecraftClient Client Controller - Fabric Mod for 1.21.1
  * 客户端主动连接 OpenClaw 服务器的 WebSocket
  */
 public class ClientControllerMod implements ClientModInitializer {
@@ -140,7 +140,7 @@ public class ClientControllerMod implements ClientModInitializer {
         File configFile = new File(configDir, "client-controller.properties");
         
         try (FileWriter writer = new FileWriter(configFile)) {
-            writer.write("# Minecraft Client Controller 配置文件\n");
+            writer.write("# MinecraftClient Client Controller 配置文件\n");
             writer.write("# OpenClaw 服务器地址\n");
             writer.write("server.host=" + SERVER_HOST + "\n");
             writer.write("\n");
@@ -160,7 +160,7 @@ public class ClientControllerMod implements ClientModInitializer {
      */
     private void createDefaultConfig(File configFile) {
         try (FileWriter writer = new FileWriter(configFile)) {
-            writer.write("# Minecraft Client Controller 配置文件\n");
+            writer.write("# MinecraftClient Client Controller 配置文件\n");
             writer.write("# OpenClaw 服务器地址\n");
             writer.write("server.host=localhost\n");
             writer.write("\n");

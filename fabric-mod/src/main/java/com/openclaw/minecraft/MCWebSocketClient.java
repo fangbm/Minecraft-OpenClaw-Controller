@@ -1,6 +1,6 @@
 package com.openclaw.minecraft;
 
-import net.minecraft.client.Minecraft;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -40,7 +40,7 @@ public class MCWebSocketClient extends WebSocketClient {
         // 发送连接成功事件
         JsonObject welcome = new JsonObject();
         welcome.addProperty("type", "connected");
-        welcome.addProperty("message", "Minecraft Client 已连接");
+        welcome.addProperty("message", "MinecraftClient Client 已连接");
         send(gson.toJson(welcome));
         
         // 发送玩家信息
@@ -81,7 +81,7 @@ public class MCWebSocketClient extends WebSocketClient {
         JsonObject data = json.has("data") ? json.getAsJsonObject("data") : new JsonObject();
         String cmdId = json.has("id") ? json.get("id").getAsString() : null;
         
-        Minecraft mc = Minecraft.getInstance();
+        MinecraftClient mc = Minecraft.getInstance();
         
         mc.execute(() -> {
             try {
@@ -133,7 +133,7 @@ public class MCWebSocketClient extends WebSocketClient {
      * 发送玩家信息
      */
     private void sendPlayerInfo() {
-        Minecraft mc = Minecraft.getInstance();
+        MinecraftClient mc = Minecraft.getInstance();
         ClientPlayerEntity player = mc.player;
         
         if (player == null) return;
