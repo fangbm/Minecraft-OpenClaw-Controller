@@ -40,6 +40,9 @@ jobs:
         cd ${{ matrix.mod-dir }}
         if [ -f "gradlew" ]; then
           echo "Gradle wrapper found in ${{ matrix.mod-dir }}"
+          echo "Gradle wrapper properties:"
+          cat gradle/wrapper/gradle-wrapper.properties
+          echo "--- Running gradlew --version ---"
           ./gradlew --version
         else
           echo "Error: gradlew not found in ${{ matrix.mod-dir }}"
@@ -48,6 +51,13 @@ jobs:
     
     - name: Make gradlew executable
       run: chmod +x ${{ matrix.mod-dir }}/gradlew
+    
+    - name: Clean Gradle cache if needed
+      run: |
+        cd ${{ matrix.mod-dir }}
+        # Clean gradle cache if previous build used different version
+        rm -rf ~/.gradle/wrapper/dists/* 2>/dev/null || true
+        rm -rf .gradle 2>/dev/null || true
     
     - name: Cache Gradle dependencies
       uses: actions/cache@v4
