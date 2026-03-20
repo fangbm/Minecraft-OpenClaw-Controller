@@ -210,8 +210,8 @@ fi
 
 # Use "xargs" to parse quoted args.
 #
-    # 修复语法错误
-    exec "$JAVACMD" "${JVM_OPTS[@]}" -classpath "$CLASSPATH" org.gradle.wrapper.GradleWrapperMain "$@"
+# With -n://services.gradle.org/distributions/gradle-8.8-bin.zip
+it arguments are passed in via the command line, then that arguments are
 # placed into the args[] array by the "xargs" command.
 eval "set -- $(
         printf '%s\n' "$DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS" |
