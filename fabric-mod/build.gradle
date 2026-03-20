@@ -1,6 +1,6 @@
-# Fabric Mod - Minecraft OpenClaw Controller
+// Fabric Mod - Minecraft OpenClaw Controller
 plugins {
-    id 'fabric-loom' version '1.7-SNAPSHOT'
+    id 'fabric-loom' version '1.7.0'
     id 'maven-publish'
 }
 
