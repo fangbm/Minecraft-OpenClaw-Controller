@@ -1,8 +1,8 @@
 pluginManagement {
     repositories {
         maven {
-            name = 'NeoForged'
-            url = 'https://maven.neoforged.net/releases'
+            name = 'Forge'
+            url = 'https://maven.minecraftforge.net'
         }
         maven {
             name = 'ParchmentMC'
@@ -11,4 +11,4 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-rootProject.name = 'minecraft-client-controller-neoforge'
+rootProject.name = 'minecraft-client-controller-forge'
