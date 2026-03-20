@@ -81,7 +81,7 @@ public class MCWebSocketClient extends WebSocketClient {
         JsonObject data = json.has("data") ? json.getAsJsonObject("data") : new JsonObject();
         String cmdId = json.has("id") ? json.get("id").getAsString() : null;
         
-        MinecraftClient mc = Minecraft.getInstance();
+        MinecraftClient mc = MinecraftClient.getInstance();
         
         mc.execute(() -> {
             try {
@@ -133,7 +133,7 @@ public class MCWebSocketClient extends WebSocketClient {
      * 发送玩家信息
      */
     private void sendPlayerInfo() {
-        MinecraftClient mc = Minecraft.getInstance();
+        MinecraftClient mc = MinecraftClient.getInstance();
         ClientPlayerEntity player = mc.player;
         
         if (player == null) return;

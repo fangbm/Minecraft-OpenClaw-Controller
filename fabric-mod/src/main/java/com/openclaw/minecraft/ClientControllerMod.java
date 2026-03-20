@@ -105,7 +105,7 @@ public class ClientControllerMod implements ClientModInitializer {
      * 加载配置文件
      */
     private void loadConfig() {
-        File configDir = new File(Minecraft.getInstance().runDirectory, "config");
+        File configDir = new File(MinecraftClient.getInstance().runDirectory, "config");
         if (!configDir.exists()) {
             configDir.mkdirs();
         }
@@ -136,7 +136,7 @@ public class ClientControllerMod implements ClientModInitializer {
      * 保存配置文件
      */
     public static void saveConfig() {
-        File configDir = new File(Minecraft.getInstance().runDirectory, "config");
+        File configDir = new File(MinecraftClient.getInstance().runDirectory, "config");
         File configFile = new File(configDir, "client-controller.properties");
         
         try (FileWriter writer = new FileWriter(configFile)) {

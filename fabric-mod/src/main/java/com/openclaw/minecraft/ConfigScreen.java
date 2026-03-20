@@ -196,7 +196,7 @@ public class ConfigScreen extends Screen {
                 ClientControllerMod.connectToServer();
                 try {
                     Thread.sleep(1000);
-                    Minecraft.getInstance().execute(() -> {
+                    MinecraftClient.getInstance().execute(() -> {
                         if (ClientControllerMod.isConnected()) {
                             setStatus("连接成功!", 0x55FF55);
                         } else {

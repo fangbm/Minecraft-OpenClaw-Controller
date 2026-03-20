@@ -30,7 +30,7 @@ public class CommandHandler {
      * 执行命令
      */
     public static Object execute(String action, JsonObject data) {
-        MinecraftClient mc = Minecraft.getInstance();
+        MinecraftClient mc = MinecraftClient.getInstance();
         ClientPlayerEntity player = mc.player;
         
         if (player == null) {
