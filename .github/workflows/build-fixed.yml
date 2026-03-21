@@ -246,7 +246,7 @@ jobs:
         with:
           tag: ${{ steps.version.outputs.version }}
           name: "Release ${{ steps.version.outputs.version }}"
-          bodyPath: RELEASE_NOTES.md
+          bodyFile: RELEASE_NOTES.md
           artifacts: "release-files/*.jar"
           draft: false
           prerelease: ${{ steps.prerelease_check.outputs.is_prerelease }}
