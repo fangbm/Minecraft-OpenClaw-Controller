@@ -35,9 +35,7 @@ public class StatusScreen extends Screen {
         this.renderBackground(context, mouseX, mouseY, delta);
         
         // 2. 渲染所有组件（按钮等）
-        for (var widget : this.drawables) {
-            widget.render(context, mouseX, mouseY, delta);
-        }
+        super.render(context, mouseX, mouseY, delta);
         
         // 3. 渲染文字（在最上层）
         int centerX = this.width / 2;
