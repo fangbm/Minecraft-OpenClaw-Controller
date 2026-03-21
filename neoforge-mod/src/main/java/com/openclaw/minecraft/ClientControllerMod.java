@@ -7,7 +7,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.TickEvent;
+import net.neoforged.neoforge.event.tick.ClientTickEvent;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import org.lwjgl.glfw.GLFW;
@@ -90,16 +90,18 @@ public class ClientControllerMod {
     }
     
     @SubscribeEvent
-    public void onClientTick(TickEvent.ClientTickEvent event) {
-        if (event.phase == TickEvent.Phase.END) {
-            // 检查快捷键 - 打开配置界面
-            if (configKey != null && configKey.consumeClick()) {
-                Minecraft.getInstance().setScreen(new ConfigScreen(Minecraft.getInstance().screen));
-            }
-            
-            // 检查快捷键 - 打开状态界面
-            if (statusKey != null && statusKey.consumeClick()) {
-                Minecraft.getInstance().setScreen(new StatusScreen(Minecraft.getInstance().screen));
+        @SubscribeEvent
+    public void onClientTick(ClientTickEvent.Post event) {
+        // 检查快捷键 - 打开配置界面
+        if (configKey != null && configKey.consumeClick()) {
+            Minecraft.getInstance().setScreen(new ConfigScreen(Minecraft.getInstance().screen));
+        }
+        
+        // 检查快捷键 - 打开状态界面
+        if (statusKey != null && statusKey.consumeClick()) {
+            Minecraft.getInstance().setScreen(new StatusScreen(Minecraft.getInstance().screen));
+        }
+    }
             }
         }
     }
