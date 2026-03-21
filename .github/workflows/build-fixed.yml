@@ -242,15 +242,17 @@ jobs:
           cat RELEASE_NOTES.md
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
+        uses: ncipollo/release-action@v1
         with:
+          tag: ${{ steps.version.outputs.version }}
           name: "Release ${{ steps.version.outputs.version }}"
-          body_path: RELEASE_NOTES.md
-          files: release-files/*.jar
+          bodyPath: RELEASE_NOTES.md
+          artifacts: "release-files/*.jar"
           draft: false
           prerelease: ${{ steps.prerelease_check.outputs.is_prerelease }}
-          generate_release_notes: false  # 使用自定义的 release notes
-          fail_on_unmatched_files: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          makeLatest: true
+          allowUpdates: true  # 允许更新已存在的 Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
