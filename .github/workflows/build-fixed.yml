@@ -265,6 +265,9 @@ jobs:
     needs: [build, release]
     runs-on: ubuntu-latest
     if: always()
+    permissions:
+      actions: write  # 添加这行权限
+    
     steps:
       - name: Delete workflow artifacts (optional)
         uses: geekyeggo/delete-artifact@v4
