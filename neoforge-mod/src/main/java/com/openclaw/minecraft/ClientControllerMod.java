@@ -90,7 +90,6 @@ public class ClientControllerMod {
     }
     
     @SubscribeEvent
-        @SubscribeEvent
     public void onClientTick(ClientTickEvent.Post event) {
         // 检查快捷键 - 打开配置界面
         if (configKey != null && configKey.consumeClick()) {
@@ -100,9 +99,6 @@ public class ClientControllerMod {
         // 检查快捷键 - 打开状态界面
         if (statusKey != null && statusKey.consumeClick()) {
             Minecraft.getInstance().setScreen(new StatusScreen(Minecraft.getInstance().screen));
-        }
-    }
-            }
         }
     }
     
