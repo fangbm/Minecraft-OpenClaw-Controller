@@ -107,11 +107,17 @@ jobs:
           
           echo "📦 Found: $JAR_FILE"
           
-          # 提取版本号
-          MOD_VERSION=$(grep "^version=" gradle.properties 2>/dev/null | cut -d'=' -f2 | tr -d ' \r' || echo "unknown")
-          BUILD_TIME=$(date +%Y%m%d-%H%M%S)
+          # 修复：查找 mod_version 而不是 version
+          MOD_VERSION=$(grep "^mod_version=" gradle.properties 2>/dev/null | cut -d'=' -f2 | tr -d ' \r' || echo "unknown")
           
-          # 创建标准化文件名: openclaw-{type}-{mcversion}-{modversion}.jar
+          # 如果 mod_version 没找到，再尝试 version
+          if [ "$MOD_VERSION" == "unknown" ]; then
+            MOD_VERSION=$(grep "^version=" gradle.properties 2>/dev/null | cut -d'=' -f2 | tr -d ' \r' || echo "unknown")
+          fi
+          
+          echo "📋 Version: $MOD_VERSION"
+          
+          # 创建标准化文件名
           OUTPUT_NAME="openclaw-${{ matrix.mod-type }}-${MC_VERSION}-${MOD_VERSION}.jar"
           
           # 复制到根目录 artifacts
